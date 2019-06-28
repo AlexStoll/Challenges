@@ -11,6 +11,7 @@ class PalindromesTest < Minitest::Test
   end
 
   def test_largest_palindrome_from_double_digit_factors
+    
     palindromes = Palindromes.new(max_factor: 99, min_factor: 10)
     palindromes.generate
     largest = palindromes.largest

@@ -4,7 +4,7 @@ class PalindromeNumber
 
   def initialize(array)
     @value = array[0]
-    @factors = array[1].map(&:sort).uniq
+    @factors = array[1].sort.uniq
   end
 end
 
@@ -15,17 +15,16 @@ class Palindromes
   def initialize(parameters)
     @min = parameters[:min_factor] || 1
     @max = parameters[:max_factor]
-    @palindromes = Hash.new([])
+    @palindromes = Hash.new { |hash, key| hash[key] = [] }
+  end
+
+  def palindrome?(num)
+    num.to_s == num.to_s.reverse
   end
 
   def generate
-    (@min..@max).each do |factor1|
-      (@min..@max).each do |factor2|
-        product = factor1 * factor2
-        if product.to_s == product.to_s.reverse
-          @palindromes[product] += [[factor1, factor2]]
-        end
-      end
+    (@min..@max).to_a.repeated_combination(2) do |num1, num2|
+      palindromes[num1 * num2] += [[num1, num2]] if palindrome?(num1 * num2)
     end
     @palindromes
   end
