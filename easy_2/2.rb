@@ -45,5 +45,5 @@ class Scrabble
 end
 
 
-p b = Scrabble.new(" ").score
+p b = Scrabble.new(" dog").score
 
