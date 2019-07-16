@@ -5,7 +5,6 @@ class Garden
                      'V' => :violets
                     }
 
-
   def initialize(garden_string, students=self.default)
     @garden_string = garden_string
     students.sort!
@@ -35,7 +34,4 @@ class Garden
      "fred", "ginny", "harriet", "ileana",
      "joseph", "kincaid", "larry"]
   end
-  
 end
-
-Garden.new("VVCCGG\nVVCCGG", ["joe", "andre", "tony"]).joe
