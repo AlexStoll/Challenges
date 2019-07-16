@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'kindergarten_garden_followalong'
+require_relative 'kindergarten_garden'
 
 class GardenTest < Minitest::Test
   def test_alices_garden
@@ -123,8 +123,8 @@ class TwoGardensDifferentStudents < Minitest::Test
 
   def test_bob_and_charlie_per_garden
     assert_equal [:radishes, :radishes, :grass, :clover], garden_1.bob
-    # assert_equal [:violets, :clover, :radishes, :violets], garden_2.bob
+    assert_equal [:violets, :clover, :radishes, :violets], garden_2.bob
     assert_equal [:grass, :violets, :clover, :grass], garden_1.charlie
-    # assert_equal [:radishes, :radishes, :grass, :clover], garden_2.charlie
+    assert_equal [:radishes, :radishes, :grass, :clover], garden_2.charlie
   end
 end

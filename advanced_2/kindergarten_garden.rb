@@ -1,9 +1,5 @@
 class Garden
-  LETTER_TO_PLANT = {'R' => :radishes, 
-                     'C' => :clover,
-                     'G' => :grass,
-                     'V' => :violets
-                    }
+  LETTER_TO_PLANT = { 'R' => :radishes, 'C' => :clover, 'G' => :grass,'V' => :violets }
 
   def initialize(garden_string, students=self.default)
     @garden_string = garden_string
@@ -11,12 +7,8 @@ class Garden
 
     students.size.times do |i|
       student = students[i]
-      Garden.create_method("#{student.downcase}", self.plants_owned(@garden_string, i))
+      define_singleton_method("#{student.downcase}", self.plants_owned(@garden_string, i))
     end
-  end
-
-  def self.create_method(name, block)
-    define_method(name, &block)
   end
 
   def plants_owned(garden_string, n)
